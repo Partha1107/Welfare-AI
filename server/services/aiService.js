@@ -1,7 +1,43 @@
 import OpenAI, { toFile } from 'openai'
 
+<<<<<<< HEAD
+function createTextClient() {
+  const isOpenRouter = process.env.OPENAI_BASE_URL?.includes('openrouter.ai')
+    || process.env.OPENAI_API_KEY?.startsWith('sk-or-v1')
+  const baseURL = process.env.OPENAI_BASE_URL || (isOpenRouter ? 'https://openrouter.ai/api/v1' : undefined)
+  return new OpenAI({
+    apiKey: process.env.OPENAI_API_KEY,
+    ...(baseURL ? { baseURL } : {}),
+    ...(isOpenRouter
+      ? { defaultHeaders: { 'X-Title': 'Welfare AI' } }
+      : {}),
+  })
+}
+
+function getTextModel() {
+  const configuredModel = process.env.OPENAI_MODEL
+  const isOpenRouter = process.env.OPENAI_BASE_URL?.includes('openrouter.ai')
+    || process.env.OPENAI_API_KEY?.startsWith('sk-or-v1')
+  if (!configuredModel) return isOpenRouter ? 'openai/gpt-4o-mini' : 'gpt-4o-mini'
+  if (isOpenRouter && !configuredModel.includes('/')) return `openai/${configuredModel}`
+  return configuredModel
+}
+
+function createAudioClient() {
+  return new OpenAI({ apiKey: process.env.OPENAI_AUDIO_API_KEY || process.env.OPENAI_API_KEY })
+}
+
+export async function transcribeAudio(audio, mimeType, language) {
+  if (!process.env.OPENAI_AUDIO_API_KEY && process.env.OPENAI_BASE_URL?.includes('openrouter.ai')) {
+    const error = new Error('Audio transcription requires an OpenAI API key in OPENAI_AUDIO_API_KEY.')
+    error.status = 503
+    throw error
+  }
+  if (!process.env.OPENAI_AUDIO_API_KEY && !process.env.OPENAI_API_KEY) {
+=======
 export async function transcribeAudio(audio, mimeType, language) {
   if (!process.env.OPENAI_API_KEY) {
+>>>>>>> 738798fafffb7353907de59d464c5ead946a67f5
     const error = new Error('Voice transcription is not configured on the server.')
     error.status = 503
     throw error
@@ -9,7 +45,11 @@ export async function transcribeAudio(audio, mimeType, language) {
 
   const extension = mimeType.includes('mp4') ? 'mp4' : mimeType.includes('ogg') ? 'ogg' : mimeType.includes('wav') ? 'wav' : 'webm'
   const file = await toFile(audio, `citizen-voice.${extension}`, { type: mimeType })
+<<<<<<< HEAD
+  const client = createAudioClient()
+=======
   const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
+>>>>>>> 738798fafffb7353907de59d464c5ead946a67f5
   const transcript = await client.audio.transcriptions.create({
     file,
     model: 'whisper-1',
@@ -19,13 +59,59 @@ export async function transcribeAudio(audio, mimeType, language) {
 }
 
 export async function generateSpeech(text, language) {
+<<<<<<< HEAD
+  if (language === 'ta') {
+    if (!process.env.SARVAM_API_KEY) {
+      const error = new Error('Tamil speech is not configured. Add SARVAM_API_KEY to server/.env.')
+      error.status = 503
+      throw error
+    }
+
+    const response = await fetch('https://api.sarvam.ai/text-to-speech', {
+      method: 'POST',
+      headers: {
+        'api-subscription-key': process.env.SARVAM_API_KEY,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        text,
+        language_code: 'ta-IN',
+        model: 'bulbul:v3',
+        speaker: 'kavya',
+        pace: 0.9,
+        temperature: 0.3,
+        output_audio_codec: 'wav',
+      }),
+    })
+    const result = await response.json()
+    if (!response.ok) {
+      const error = new Error(result.error?.message || 'Tamil speech service could not create audio.')
+      error.status = response.status === 401 || response.status === 403 ? 503 : 502
+      throw error
+    }
+    if (!result.audios?.[0]) throw new Error('Tamil speech service returned no audio.')
+    return { audio: Buffer.from(result.audios[0], 'base64'), contentType: 'audio/wav' }
+  }
+
+  if (!process.env.OPENAI_AUDIO_API_KEY && process.env.OPENAI_BASE_URL?.includes('openrouter.ai')) {
+    const error = new Error('English speech requires an OpenAI API key in OPENAI_AUDIO_API_KEY.')
+    error.status = 503
+    throw error
+  }
+  if (!process.env.OPENAI_AUDIO_API_KEY && !process.env.OPENAI_API_KEY) {
+=======
   if (!process.env.OPENAI_API_KEY) {
+>>>>>>> 738798fafffb7353907de59d464c5ead946a67f5
     const error = new Error('Spoken Tamil is not configured on the server.')
     error.status = 503
     throw error
   }
 
+<<<<<<< HEAD
+  const client = createAudioClient()
+=======
   const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
+>>>>>>> 738798fafffb7353907de59d464c5ead946a67f5
   const speech = await client.audio.speech.create({
     model: 'gpt-4o-mini-tts',
     voice: 'marin',
@@ -35,7 +121,11 @@ export async function generateSpeech(text, language) {
       ? 'Speak in clear, natural Tamil as a friendly native Tamil Nadu speaker. Use everyday spoken Tamil pronunciation, not a foreign-accented reading. Speak at a calm, moderate pace, articulate each word clearly, and sound warm and reassuring without becoming theatrical. Keep English scheme names recognizable.'
       : 'Speak in clear, warm conversational Indian English at a calm, moderate pace. Articulate clearly and sound like a friendly, patient helper.',
   })
+<<<<<<< HEAD
+  return { audio: Buffer.from(await speech.arrayBuffer()), contentType: 'audio/mpeg' }
+=======
   return Buffer.from(await speech.arrayBuffer())
+>>>>>>> 738798fafffb7353907de59d464c5ead946a67f5
 }
 
 const offlineAnswers = {
@@ -65,6 +155,47 @@ export async function answerWelfareQuestion(message, language, history = []) {
         : 'Of course, I’m here to help. You can ask about farming, education, medical costs or documents. Tell me a little about your situation and we’ll work out what to check next. A CSC or government office can confirm eligibility.')
   }
 
+<<<<<<< HEAD
+  const client = createTextClient()
+  const languageInstruction = language === 'ta'
+    ? 'Reply only in Tamil using Tamil script (தமிழ் எழுத்துகள்). Do not answer in English or Tanglish. Keep official scheme names and acronyms such as PM-KISAN in their original form, but explain them in simple spoken Tamil.'
+    : 'Reply only in plain conversational English.'
+  const systemPrompt = `You are Welfare AI, a friendly public-benefits information helper. ${languageInstruction} Sound like a patient, kind neighbour: warm, reassuring without making promises, never bureaucratic. Use short sentences that sound natural when read aloud. Ask one gentle follow-up question when facts are missing. Give general guidance, never claim eligibility or application approval. Do not invent schemes, amounts, deadlines, or legal/medical advice. Explain that citizens should confirm current rules with myScheme, the relevant department, or a CSC. Welfare AI complements UMANG, myScheme, and CSC; it does not replace them.`
+  const historyMessages = history.slice(-8)
+    .filter(({ role, content }) => ['user', 'assistant'].includes(role) && typeof content === 'string')
+    .map(({ role, content }) => ({ role, content }))
+  const messages = [
+    {
+      role: 'system',
+      content: systemPrompt,
+    },
+    ...historyMessages,
+    { role: 'user', content: message },
+  ]
+  const requestCompletion = (requestMessages) => client.chat.completions.create({
+    model: getTextModel(),
+    temperature: 0.2,
+    max_tokens: 450,
+    messages: requestMessages,
+  })
+  let completion = await requestCompletion(messages)
+  let reply = completion.choices[0]?.message?.content?.trim()
+  if (language === 'ta' && reply && !/[\u0B80-\u0BFF]/u.test(reply)) {
+    completion = await requestCompletion([
+      { role: 'system', content: systemPrompt },
+      ...historyMessages,
+      { role: 'user', content: message },
+      { role: 'assistant', content: reply },
+      { role: 'user', content: 'இந்தப் பதிலை எளிய, இயல்பான தமிழில், தமிழ் எழுத்துகளைப் பயன்படுத்தி மீண்டும் எழுதுங்கள். ஆங்கிலத்தில் எழுத வேண்டாம்.' },
+    ])
+    reply = completion.choices[0]?.message?.content?.trim()
+  }
+  if (language === 'ta' && reply && !/[\u0B80-\u0BFF]/u.test(reply)) {
+    return offlineAnswers.ta.find(({ terms }) => terms.some((term) => message.includes(term)))?.answer
+      ?? 'நிச்சயமாக, உதவுகிறேன். உங்கள் கேள்வியை எளிய தமிழில் மீண்டும் சொல்ல முடியுமா?'
+  }
+  return reply || (language === 'ta' ? 'மன்னிக்கவும், இப்போது பதில் அளிக்க முடியவில்லை.' : 'Sorry, I could not prepare an answer just now.')
+=======
   const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
   const messages = [
     {
@@ -80,6 +211,7 @@ export async function answerWelfareQuestion(message, language, history = []) {
     messages,
   })
   return completion.choices[0]?.message?.content?.trim() || (language === 'ta' ? 'மன்னிக்கவும், இப்போது பதில் அளிக்க முடியவில்லை.' : 'Sorry, I could not prepare an answer just now.')
+>>>>>>> 738798fafffb7353907de59d464c5ead946a67f5
 }
 
 const numberFromText = (text, expression) => {
@@ -129,9 +261,15 @@ function inferProfile(description) {
 export async function extractCitizenProfile(description) {
   if (!process.env.OPENAI_API_KEY) return inferProfile(description)
 
+<<<<<<< HEAD
+  const client = createTextClient()
+  const completion = await client.chat.completions.create({
+    model: getTextModel(),
+=======
   const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
   const completion = await client.chat.completions.create({
     model: process.env.OPENAI_MODEL || 'gpt-4o-mini',
+>>>>>>> 738798fafffb7353907de59d464c5ead946a67f5
     response_format: { type: 'json_object' },
     temperature: 0,
     messages: [
