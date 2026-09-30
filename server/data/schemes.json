@@ -1,42 +1,450 @@
 [
   {
-    "id": "pm-kisan",
-    "name": "PM-KISAN (demo reference)",
-    "category": "farming",
-    "summary": "Income support for eligible landholding farmer families, subject to scheme rules and exclusions.",
-    "needs": ["farming"],
-    "requiredFacts": ["farmlandOwnership"],
-    "documents": ["Aadhaar", "landholding records", "bank account details"],
-    "nextAction": "Check current PM-KISAN status and land record requirements with the agriculture office or an assisted service centre."
+    "id": "pm_kisan",
+    "name": "PM-KISAN Samman Nidhi",
+    "description": "Financial support of ₹6,000 per year to landholding farmer families in three equal installments.",
+    "criteria": {
+      "occupation": ["farmer", "kisan", "agriculture", "cultivator"],
+      "max_income": 150000
+    }
   },
   {
-    "id": "pmfby",
+    "id": "widow_pension",
+    "name": "National Widow Pension Scheme (IGNWPS)",
+    "description": "Monthly financial assistance for widows living below the poverty line.",
+    "criteria": {
+      "category": ["widow", "single woman", "destitute"],
+      "max_income": 80000
+    }
+  },
+  {
+    "id": "old_age_pension",
+    "name": "Indira Gandhi National Old Age Pension (IGNOAPS)",
+    "description": "Monthly pension for elderly citizens aged 60 and above living below the poverty line.",
+    "criteria": {
+      "min_age": 60,
+      "max_income": 100000
+    }
+  },
+  {
+    "id": "disability_pension",
+    "name": "Indira Gandhi National Disability Pension (IGNDPS)",
+    "description": "Financial assistance for individuals with severe and multiple disabilities belonging to BPL families.",
+    "criteria": {
+      "category": ["disabled", "divyang", "handicapped"],
+      "max_income": 100000
+    }
+  },
+  {
+    "id": "pm_awas_yojana_gramin",
+    "name": "Pradhan Mantri Awas Yojana - Gramin (PMAY-G)",
+    "description": "Financial assistance for the construction of pucca houses for rural poor and houseless households.",
+    "criteria": {
+      "location": "rural",
+      "max_income": 100000,
+      "housing_status": "houseless"
+    }
+  },
+  {
+    "id": "pm_awas_yojana_urban",
+    "name": "Pradhan Mantri Awas Yojana - Urban (PMAY-U)",
+    "description": "Housing assistance and interest subsidies for urban poor, EWS, and LIG categories.",
+    "criteria": {
+      "location": "urban",
+      "max_income": 300000
+    }
+  },
+  {
+    "id": "ayushman_bharat",
+    "name": "Ayushman Bharat PM-JAY",
+    "description": "Health insurance cover of up to ₹5 Lakhs per family per year for secondary and tertiary hospitalization.",
+    "criteria": {
+      "category": ["bpl", "poor", "vulnerable", "low income"],
+      "max_income": 200000
+    }
+  },
+  {
+    "id": "ujjwala_yojana",
+    "name": "Pradhan Mantri Ujjwala Yojana (PMUY)",
+    "description": "Provides deposit-free LPG connections to women belonging to below-poverty-line households.",
+    "criteria": {
+      "category": ["woman", "bpl", "housewife"],
+      "max_income": 150000
+    }
+  },
+  {
+    "id": "mgnrega",
+    "name": "Mahatma Gandhi National Rural Employment Guarantee Act",
+    "description": "Guarantees 100 days of wage employment in a financial year to every rural household whose adult members volunteer for unskilled manual work.",
+    "criteria": {
+      "location": "rural",
+      "occupation": ["daily wage", "laborer", "worker", "unemployed", "farmer"]
+    }
+  },
+  {
+    "id": "pm_svanidhi",
+    "name": "PM SVANidhi Scheme",
+    "description": "Micro-credit facility providing affordable working capital loans to street vendors.",
+    "criteria": {
+      "occupation": ["street vendor", "hawker", "cart puller", "shopkeeper"],
+      "max_income": 200000
+    }
+  },
+  {
+    "id": "mudra_loan",
+    "name": "PMMY Mudra Loan Scheme",
+    "description": "Collateral-free institutional loans up to ₹10 Lakhs for micro and small enterprise non-corporate business units.",
+    "criteria": {
+      "occupation": ["small business", "entrepreneur", "artisan", "weaver"],
+      "max_income": 500000
+    }
+  },
+  {
+    "id": "stand_up_india",
+    "name": "Stand-Up India Scheme",
+    "description": "Bank loans between ₹10 Lakhs and ₹1 Crore for SC/ST and women entrepreneurs for greenfield enterprises.",
+    "criteria": {
+      "category": ["sc", "st", "woman"],
+      "occupation": ["entrepreneur", "business owner"]
+    }
+  },
+  {
+    "id": "ational_family_benefit",
+    "name": "National Family Benefit Scheme (NFBS)",
+    "description": "One-time financial assistance of ₹20,000 to a bereaved family upon the death of its primary breadwinner.",
+    "criteria": {
+      "category": ["bereaved", "bpl"],
+      "max_income": 80000
+    }
+  },
+  {
+    "id": "pm_suraksha_bima",
+    "name": "Pradhan Mantri Suraksha Bima Yojana (PMSBY)",
+    "description": "Accidental insurance scheme offering coverage for accidental death and disability at a nominal premium.",
+    "criteria": {
+      "min_age": 18,
+      "max_age": 70
+    }
+  },
+  {
+    "id": "pm_jeevan_jyoti",
+    "name": "Pradhan Mantri Jeevan Jyoti Bima Yojana (PMJJBY)",
+    "description": "Renewable one-year life insurance scheme covering death due to any cause.",
+    "criteria": {
+      "min_age": 18,
+      "max_age": 50
+    }
+  },
+  {
+    "id": "atal_pension_yojana",
+    "name": "Atal Pension Yojana (APY)",
+    "description": "Guaranteed minimum pension scheme ranging from ₹1,000 to ₹5,000 per month for unorganized sector workers.",
+    "criteria": {
+      "min_age": 18,
+      "max_age": 40,
+      "occupation": ["unorganized worker", "daily wage", "driver", "maid"]
+    }
+  },
+  {
+    "id": "shram_yogi_mandhan",
+    "name": "Pradhan Mantri Shram Yogi Maan-dhan (PM-SYM)",
+    "description": "Old age protection and monthly pension of ₹3,000 for unorganized workers after age 60.",
+    "criteria": {
+      "min_age": 18,
+      "max_age": 40,
+      "max_income": 15000,
+      "occupation": ["worker", "vendor", "rickshaw puller"]
+    }
+  },
+  {
+    "id": "national_apprenticeship",
+    "name": "National Apprenticeship Promotion Scheme (NAPS)",
+    "description": "Financial support and industry apprenticeship training opportunities for youth.",
+    "criteria": {
+      "occupation": ["student", "youth", "unemployed graduate"],
+      "min_age": 14
+    }
+  },
+  {
+    "id": "pm_daksh",
+    "name": "PM-DAKSH Yojana",
+    "description": "Skill development training programs for target groups including SC, OBC, Economically Backward Classes, and Sanitation Workers.",
+    "criteria": {
+      "category": ["sc", "obc", "ebc", "sanitation worker"],
+      "max_income": 300000
+    }
+  },
+  {
+    "id": "jan_dhan_yojana",
+    "name": "Pradhan Mantri Jan Dhan Yojana (PMJDY)",
+    "description": "National mission for financial inclusion providing zero-balance bank accounts with RuPay debit cards and overdraft facilities.",
+    "criteria": {
+      "category": ["unbanked", "poor", "rural citizen"]
+    }
+  },
+  {
+    "id": "national_sc_finance",
+    "name": "NSFDC Concessional Loan Scheme",
+    "description": "Concessional financial assistance for income-generating activities for persons belonging to Scheduled Castes.",
+    "criteria": {
+      "category": ["sc", "scheduled caste"],
+      "max_income": 300000
+    }
+  },
+  {
+    "id": "national_st_finance",
+    "name": "NSTFDC Financial Assistance",
+    "description": "Concessional loans for economic development projects for Scheduled Tribes.",
+    "criteria": {
+      "category": ["st", "scheduled tribe"],
+      "max_income": 300000
+    }
+  },
+  {
+    "id": "national_minorities_finance",
+    "name": "NMDFC Term Loan Scheme",
+    "description": "Low-interest financial assistance for self-employment ventures for backward sections among minorities.",
+    "criteria": {
+      "category": ["minority", "muslim", "christian", "sikh", "buddhist", "jain", "parsi"],
+      "max_income": 300000
+    }
+  },
+  {
+    "id": "kisan_credit_card",
+    "name": "Kisan Credit Card (KCC) Scheme",
+    "description": "Timely and adequate credit support to farmers for cultivation and other agricultural needs at subsidized interest rates.",
+    "criteria": {
+      "occupation": ["farmer", "fisherman", "animal husbandry", "agriculturist"]
+    }
+  },
+  {
+    "id": "pm_fasal_bima",
     "name": "Pradhan Mantri Fasal Bima Yojana (PMFBY)",
-    "category": "farming",
-    "summary": "Crop insurance support for notified crops and areas during an applicable season.",
-    "needs": ["farming"],
-    "requiredFacts": ["cropDetails", "district"],
-    "documents": ["crop and sowing details", "land or tenancy documents", "bank account details"],
-    "nextAction": "Ask the local agriculture office or bank whether your crop and area are notified for the current season."
+    "description": "Crop insurance scheme providing financial protection against crop failure due to natural calamities.",
+    "criteria": {
+      "occupation": ["farmer", "cultivator", "kisan"]
+    }
   },
   {
-    "id": "education-scholarships",
-    "name": "School and post-school scholarships",
-    "category": "education",
-    "summary": "A range of central and state scholarship routes may support eligible students; conditions vary by programme.",
-    "needs": ["education"],
-    "requiredFacts": ["studentEducationLevel", "studentCategory"],
-    "documents": ["student and school details", "income certificate", "bank details", "category certificate if applicable"],
-    "nextAction": "Ask the school about active scholarship applications and deadlines, then verify the student-specific criteria."
+    "id": "soil_health_card",
+    "name": "Soil Health Card Scheme",
+    "description": "Provides crop-wise recommendations of nutrients and fertilizers to help farmers improve productivity.",
+    "criteria": {
+      "occupation": ["farmer", "agriculturist"]
+    }
   },
   {
-    "id": "healthcare-support",
-    "name": "Public health coverage and state health support",
-    "category": "healthcare",
-    "summary": "Public health coverage options may be available depending on household listing, state rules and the treatment needed.",
-    "needs": ["healthcare"],
-    "requiredFacts": ["householdHealthEligibility", "treatmentDetails"],
-    "documents": ["household or ration-card details", "identity documents", "hospital or treatment details"],
-    "nextAction": "Check household coverage with a participating hospital help desk or the state health helpline before treatment."
+    "id": "pm_krishi_sinchayee",
+    "name": "PM Krishi Sinchayee Yojana (PMKSY)",
+    "description": "Water-focused scheme enhancing physical access to water on farms ('Har Khet ko Paani' and 'More Crop per Drop').",
+    "criteria": {
+      "occupation": ["farmer", "agriculturist"]
+    }
+  },
+  {
+    "id": "pm_matsya_sampada",
+    "name": "Pradhan Mantri Matsya Sampada Yojana (PMMSY)",
+    "description": "Financial support and infrastructure development for sustainable fisheries and fish farmers.",
+    "criteria": {
+      "occupation": ["fisherman", "fishery", "aquaculture"],
+      "max_income": 400000
+    }
+  },
+  {
+    "id": "rashtriya_gokul_mission",
+    "name": "Rashtriya Gokul Mission",
+    "description": "Development and conservation of indigenous bovine breeds and support for dairy farmers.",
+    "criteria": {
+      "occupation": ["dairy farmer", "cattle rearer", "livestock farmer"]
+    }
+  },
+  {
+    "id": "pm_kusum",
+    "name": "PM-KUSUM Scheme",
+    "description": "Installation of solar pumps and grid-connected solar power plants for farmers to ensure irrigation security.",
+    "criteria": {
+      "occupation": ["farmer", "agricultural landowner"]
+    }
+  },
+  {
+    "id": "enam_portal",
+    "name": "e-NAM Agricultural Trading Portal",
+    "description": "Pan-India electronic trading portal networking agricultural produce markets for transparent pricing.",
+    "criteria": {
+      "occupation": ["farmer", "trader", "agriculturist"]
+    }
+  },
+  {
+    "id": "pm_poshan",
+    "name": "PM POSHAN Abhiyaan (Mid-Day Meal)",
+    "description": "Nutritional hot cooked meals provided to school children in government and aided primary/upper-primary schools.",
+    "criteria": {
+      "occupation": ["student", "school child"],
+      "max_age": 14
+    }
+  },
+  {
+    "id": "samagra_shiksha",
+    "name": "Samagra Shiksha Abhiyaan",
+    "description": "Inclusive education program providing free textbooks, uniforms, and infrastructure support up to senior secondary level.",
+    "criteria": {
+      "occupation": ["student", "school child"],
+      "max_age": 18
+    }
+  },
+  {
+    "id": "national_means_scholarship",
+    "name": "National Means-cum-Merit Scholarship (NMMSS)",
+    "description": "Scholarship awards to meritorious students from economically weaker sections to prevent dropouts at class VIII.",
+    "criteria": {
+      "occupation": ["student"],
+      "max_income": 350000
+    }
+  },
+  {
+    "id": "post_matric_sc_st",
+    "name": "Post-Matric Scholarship for SC/ST Students",
+    "description": "Financial assistance covering tuition fees and maintenance allowances for post-matriculation studies.",
+    "criteria": {
+      "category": ["sc", "st"],
+      "occupation": ["student"],
+      "max_income": 250000
+    }
+  },
+  {
+    "id": "post_matric_obc",
+    "name": "Post-Matric Scholarship for OBC Students",
+    "description": "Educational financial support for students belonging to Other Backward Classes for higher education.",
+    "criteria": {
+      "category": ["obc"],
+      "occupation": ["student"],
+      "max_income": 150000
+    }
+  },
+  {
+    "id": "vidyalakshmi_portal",
+    "name": "Vidya Lakshmi Education Loan Scheme",
+    "description": "Portal for students to view, apply, and track education loans across multiple banks seamlessly.",
+    "criteria": {
+      "occupation": ["student", "higher education"]
+    }
+  },
+  {
+    "id": "nari_shakti_puraskar",
+    "name": "National Mission for Empowerment of Women",
+    "description": "Holistic support, legal assistance, and empowerment programs for women across rural and urban settings.",
+    "criteria": {
+      "category": ["woman", "female"]
+    }
+  },
+  {
+    "id": "beti_bachao_beti_padhao",
+    "name": "Beti Bachao Beti Padhao Scheme",
+    "description": "Campaign generating awareness around girl child education, welfare, and prevention of gender-biased elimination.",
+    "criteria": {
+      "category": ["girl child", "daughter", "mother"],
+      "max_age": 18
+    }
+  },
+  {
+    "id": "sukanya_samriddhi",
+    "name": "Sukanya Samriddhi Account Scheme",
+    "description": "Small deposit savings scheme for girl children offering high tax-free interest rates for higher education and marriage.",
+    "criteria": {
+      "category": ["girl child", "parent"],
+      "max_age": 10
+    }
+  },
+  {
+    "id": "mission_vatsalya",
+    "name": "Mission Vatsalya (Child Protection)",
+    "description": "Protective care, financial sponsorship, and rehabilitation services for children in difficult circumstances.",
+    "criteria": {
+      "category": ["orphan", "destitute child", "vulnerable child"],
+      "max_age": 18
+    }
+  },
+  {
+    "id": "poshan_abhiyaan",
+    "name": "POSHAN Abhiyaan (National Nutrition Mission)",
+    "description": "Reduces malnutrition and stunting among young children, pregnant women, and lactating mothers.",
+    "criteria": {
+      "category": ["pregnant woman", "lactating mother", "infant"],
+      "max_age": 6
+    }
+  },
+  {
+    "id": "pm_matru_vandana",
+    "name": "Pradhan Mantri Matru Vandana Yojana (PMMVY)",
+    "description": "Direct cash transfer of ₹5,000 to pregnant women and lactating mothers for their first live birth to compensate for wage loss.",
+    "criteria": {
+      "category": ["pregnant woman", "mother"],
+      "max_income": 800000
+    }
+  },
+  {
+    "id": "janani_suraksha_yojana",
+    "name": "Janani Suraksha Yojana (JSY)",
+    "description": "Safe motherhood intervention under the National Health Mission promoting institutional delivery among poor pregnant women.",
+    "criteria": {
+      "category": ["pregnant woman", "bpl", "mother"]
+    }
+  },
+  {
+    "id": "national_social_assistance",
+    "name": "National Social Assistance Programme (NSAP)",
+    "description": "Umbrella social security scheme providing financial aid to elderly, widows, and disabled persons.",
+    "criteria": {
+      "category": ["elderly", "widow", "disabled", "bpl"],
+      "max_income": 100000
+    }
+  },
+  {
+    "id": "pm_jan_vikas_karyakram",
+    "name": "Pradhan Mantri Jan Vikas Karyakram (PMJVK)",
+    "description": "Socio-economic infrastructure development projects (schools, hospitals, skill centers) in minority-concentrated areas.",
+    "criteria": {
+      "location": "rural",
+      "category": ["minority", "backward region"]
+    }
+  },
+  {
+    "id": "destitute_widow_pension_tn",
+    "name": "Tamil Nadu Destitute Widow Pension Scheme",
+    "description": "State monthly financial assistance of ₹1,200+ for destitute widows residing in Tamil Nadu.",
+    "criteria": {
+      "state": "tamil nadu",
+      "category": ["widow", "destitute"],
+      "max_income": 72000
+    }
+  },
+  {
+    "id": "old_age_pension_tn",
+    "name": "Tamil Nadu Chief Minister's Old Age Pension Scheme",
+    "description": "Monthly social security pension for indigent senior citizens aged 60 and above in Tamil Nadu.",
+    "criteria": {
+      "state": "tamil nadu",
+      "min_age": 60,
+      "max_income": 72000
+    }
+  },
+  {
+    "id": "pudhumai_penn_scheme",
+    "name": "Moovalur Ramamirtham Ammaiyar Higher Education Assurance Scheme (Pudhumai Penn)",
+    "description": "Monthly financial assistance of ₹1,000 directly credited to girl students studying in higher education who studied in government schools from classes 6 to 12 in Tamil Nadu.",
+    "criteria": {
+      "state": "tamil nadu",
+      "category": ["girl student", "student"],
+      "occupation": ["student"]
+    }
+  },
+  {
+    "id": "tamil_nadu_free_electricity_farmer",
+    "name": "TN Free Electricity Supply for Farmers",
+    "description": "Free electricity connection and supply for agricultural pump sets across farming lands in Tamil Nadu.",
+    "criteria": {
+      "state": "tamil nadu",
+      "occupation": ["farmer", "agriculturist"]
+    }
   }
 ]
