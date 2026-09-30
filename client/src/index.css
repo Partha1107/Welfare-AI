@@ -29,7 +29,7 @@ html[lang='ta'] textarea,
 html[lang='ta'] input,
 html[lang='ta'] button,
 html[lang='ta'] select {
-  overflow-wrap: break-word;
+  overflow-wrap: normal break-word;
   word-break: normal;
 }
 
@@ -97,11 +97,6 @@ button { color: inherit; }
 h1 { margin: 19px 0 15px; color: var(--ink); font-family: var(--serif); font-size: clamp(45px, 5.2vw, 70px); line-height: 1.04; letter-spacing: 0; font-weight: 600; }
 h1 span { color: var(--green); }
 .intro-copy { max-width: 360px; margin: 0; color: #626b65; font-size: 15px; line-height: 1.75; }
-.user-guidance { margin-top: 22px; padding: 14px 16px; border: 1px solid #e2e5dc; background: #f8f8f3; border-radius: 12px; }
-.data-guidance { margin-top: 14px; background: #f5f1e6; border-color: #e4d9be; }
-.guide-title { margin: 0 0 8px; color: var(--green); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
-.guide-list { display: grid; gap: 7px; margin: 0; padding-left: 18px; color: #4c574f; font-size: 13px; line-height: 1.6; }
-.guide-list li::marker { color: #7b9b7d; }
 .steps { display: flex; align-items: center; gap: 10px; margin-top: 34px; }
 .step-item { display: grid; gap: 5px; color: #666e68; white-space: nowrap; font-size: 10px; }
 .step-number { color: #a07c46; font-size: 9px; font-weight: 700; }
@@ -289,7 +284,7 @@ h1 span { color: var(--green); }
   html[lang="ta"] h1 { font-size: 34px; }
 }
 
-.workbench { grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr); gap: clamp(24px, 4vw, 56px); max-width: 1100px; margin: 0 auto; padding: 48px 0 36px; align-items: start; }
+.workbench { grid-template-columns: minmax(0, 1fr); gap: 22px; max-width: 860px; margin: 0 auto; padding: 48px 0 36px; align-items: start; }
 .intro-column { max-width: 720px; }
 h1 { margin: 12px 0 7px; font-size: 44px; line-height: 1.12; font-weight: 700; }
 .intro-copy { max-width: 520px; font-size: 16px; line-height: 1.5; }
