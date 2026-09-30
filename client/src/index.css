@@ -16,6 +16,65 @@
   --serif: 'Manrope', 'Noto Sans Tamil', sans-serif;
 }
 
+html[lang='ta'] {
+  font-size: 13px;
+}
+
+html[lang='ta'] body,
+html[lang='ta'] p,
+html[lang='ta'] h1,
+html[lang='ta'] h2,
+html[lang='ta'] h3,
+html[lang='ta'] textarea,
+html[lang='ta'] input,
+html[lang='ta'] button,
+html[lang='ta'] select {
+  overflow-wrap: normal break-word;
+  word-break: normal;
+}
+
+html[lang='ta'] h1 {
+  font-size: clamp(30px, 4vw, 52px);
+  line-height: 1.45;
+  letter-spacing: 0;
+  max-width: 100%;
+}
+
+html[lang='ta'] .intro-copy,
+html[lang='ta'] .input-wrap textarea,
+html[lang='ta'] .input-meta,
+html[lang='ta'] .voice-button,
+html[lang='ta'] .example-button,
+html[lang='ta'] .gentle-note,
+html[lang='ta'] .chat-message,
+html[lang='ta'] .chat-form input,
+html[lang='ta'] .chat-footnote,
+html[lang='ta'] .chat-error,
+html[lang='ta'] .scheme-content > p,
+html[lang='ta'] .scheme-documents,
+html[lang='ta'] .reasoning-note p,
+html[lang='ta'] .help-callout p,
+html[lang='ta'] .quiet-band div > span,
+html[lang='ta'] .ecosystem-note p {
+  font-size: 0.96em;
+  line-height: 1.8;
+}
+
+html[lang='ta'] .step-item,
+html[lang='ta'] .section-kicker,
+html[lang='ta'] .privacy-note,
+html[lang='ta'] .prototype-label,
+html[lang='ta'] .input-meta,
+html[lang='ta'] .fact-list span,
+html[lang='ta'] .match-heading,
+html[lang='ta'] .scheme-content > .scheme-documents,
+html[lang='ta'] .dataset-disclaimer,
+html[lang='ta'] .help-callout strong,
+html[lang='ta'] .help-callout a,
+html[lang='ta'] .footer {
+  font-size: 1.08em;
+}
+
 * { box-sizing: border-box; }
 body { margin: 0; min-width: 320px; }
 button, textarea { font: inherit; }
