@@ -1,5 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
 import {
+<<<<<<< HEAD
+=======
+  ArrowDownRight,
+>>>>>>> 738798fafffb7353907de59d464c5ead946a67f5
   ArrowRight,
   AudioLines,
   Check,
@@ -23,6 +27,7 @@ import { askAssistant, findSchemes, generateSpokenReply, transcribeVoice } from 
 
 const translations = {
   en: {
+<<<<<<< HEAD
     language: 'Language', prototype: 'India', eyebrow: '', title: 'Choose help', intro: 'Tap a picture or speak.',
     steps: ['Your story', 'Possible help', 'Next steps'], ecosystemTitle: 'Works alongside public services.', ecosystem: 'UMANG, myScheme and CSC help people access government services. Welfare AI is a prototype that helps explain possible support. It does not replace those services.',
     household: 'Start here', question: 'Choose help, or talk', noAccount: '', describe: 'Tell us what help you need', placeholder: 'Or type a few words…',
@@ -54,6 +59,40 @@ const translations = {
   },
 }
 
+=======
+    language: 'Language', prototype: 'Prototype · India', eyebrow: 'Find support that may fit', title: 'Tell us what is going on.', intro: 'Use your own words. We’ll look for support your family may be able to check.',
+    steps: ['Your story', 'Possible help', 'Next steps'], ecosystemTitle: 'Works alongside public services.', ecosystem: 'UMANG, myScheme and CSC help people access government services. Welfare AI is a prototype that helps explain possible support. It does not replace those services.',
+    household: 'YOUR FAMILY', question: 'What do you need help with?', noAccount: 'No account needed', describe: 'Tell us about your situation', placeholder: 'For example: I am a farmer. My daughter is in school and my wife needs medical care.',
+    hint: 'Add your place, work, income or family needs if you can.', speak: 'Speak in English', listening: 'Listening…', example: 'Use example', gentle: 'Say it in your own words.', submit: 'Find possible help', loading: 'Checking…',
+    emptyError: 'Tell us a little about your family and what help you need.', voiceUnsupported: 'Voice input is not available in this browser. You can type instead.', voiceError: 'Could not start voice input. Check microphone permission or type instead.', voicePermission: 'Allow microphone access for this site in your browser settings, then try again.', voiceNoSpeech: 'No speech was heard. Check your microphone and try speaking again.', voiceNetwork: 'Speech recognition could not connect. Check your internet connection or use voice recording below.', voiceNetworkFallback: 'Online speech recognition is unavailable. You can record a short voice message; audio is sent to the server for transcription.', voiceLanguage: 'Speech recognition does not support this language in your browser. Choose another language or type instead.', stopSpeaking: 'Stop listening', recordVoice: 'Record voice', transcribing: 'Transcribing…', voiceFallbackUnsupported: 'Voice recording is not supported by this browser. Try another browser or type instead.', voiceNeedsServerKey: 'Voice transcription needs an OpenAI API key in server/.env. You can type your situation meanwhile.', voiceRecordingError: 'Could not record audio. Check microphone permission and try again.', noAudio: 'No audio was recorded. Please try again.',
+    quietTitle: 'Clear answers, in simple words.', quietBody: 'See why support may fit, what details are missing, and what to do next.', summary: 'YOUR SUMMARY', resultsTitle: 'Here is what you can check.', startOver: 'Start again', understood: 'What we understood', moreDetails: 'Add a little more detail to your story.',
+    possibleMatch: 'POSSIBLE MATCHES', demo: 'DEMO DATA', potential: 'May fit', confirm: 'To check:', documents: 'Documents to ask about:', noMatches: 'No close match in this small demo list. A local CSC may help you check other support.',
+    disclaimer: 'These are ideas to check, not approvals. Rules can change. Confirm with the relevant department or service.', needDetails: 'DETAILS THAT MAY HELP', gather: 'Before you check, find out…', allSet: 'You have a useful starting point. A local service can check the full rules.',
+    needPerson: 'Would you like help in person?', csc: 'A Common Services Centre (CSC) can help people use government services.', findCsc: 'CSC information', how: 'How it works', howBody: 'AI helps understand your story. Simple rules find possible matches. This is not an official decision.',
+    years: 'years', children: 'children', perYear: 'per year', noResult: 'We could not check that just now. Please try again.',
+    botTitle: 'Ask Welfare AI', botOnline: 'Here with you', chatWelcome: 'Hi, I’m glad you stopped by. Tell me what’s on your mind. I can help you look into farming, education or health support, one step at a time.', chatPlaceholder: 'Type a question…', chatSend: 'Send message', chatSpeak: 'Speak this reply', chatMic: 'Ask by voice', chatListening: 'Listening…', chatBusy: 'Thinking…', chatError: 'I could not answer just now. Please try again.', chatVoiceError: 'Could not hear you. Check microphone access or type your question.', chatVoiceFallback: 'Online voice recognition is unavailable. Tap the microphone again to record a question.', chatRecord: 'Record your question', chatStopRecord: 'Stop recording', chatTranscribing: 'Transcribing…', chatNeedsKey: 'Voice transcription needs an OpenAI API key in server/.env. You can type your question meanwhile.', speechOn: 'Turn off spoken replies', speechOff: 'Turn on spoken replies', nativeTamilUnavailable: 'This device has no Tamil voice installed. Add an OpenAI API key in server/.env for natural Tamil voice replies.', speechPlaybackBlocked: 'Your browser blocked automatic audio. Tap the speaker button to hear this reply.',
+  },
+  ta: {
+    language: 'மொழி', prototype: 'முன்மாதிரி · இந்தியா', eyebrow: 'உதவி வாய்ப்புகளைத் தேடுங்கள்', title: 'உங்கள் நிலைமையைச் சொல்லுங்கள்.', intro: 'உங்கள் சொந்த வார்த்தைகளில் சொல்லுங்கள். உங்கள் குடும்பத்திற்குப் பொருந்தக்கூடிய உதவிகளைத் தேடுகிறோம்.',
+    steps: ['உங்கள் விவரம்', 'உதவி வாய்ப்புகள்', 'அடுத்த படி'], ecosystemTitle: 'அரசு சேவைகளுடன் இணைந்து செயல்படும்.', ecosystem: 'UMANG, myScheme, CSC ஆகியவை அரசு சேவைகளைப் பெற உதவுகின்றன. Welfare AI உதவி வாய்ப்புகளை விளக்கும் முன்மாதிரி. இது அந்த சேவைகளுக்கு மாற்றாகாது.',
+    household: 'உங்கள் குடும்பம்', question: 'என்ன உதவி தேவை?', noAccount: 'கணக்கு தேவையில்லை', describe: 'உங்கள் நிலைமையைச் சொல்லுங்கள்', placeholder: 'உதாரணம்: நான் விவசாயி. என் மகள் பள்ளியில் படிக்கிறாள். என் மனைவிக்கு மருத்துவ உதவி தேவை.',
+    hint: 'ஊர், வேலை, வருமானம் அல்லது குடும்பத் தேவைகளைச் சொல்லலாம்.', speak: 'தமிழில் பேசுங்கள்', listening: 'கேட்கிறோம்…', example: 'உதாரணம் பார்க்க', gentle: 'உங்கள் சொந்த வார்த்தைகளில் சொல்லுங்கள்.', submit: 'உதவி வாய்ப்புகளைப் பாருங்கள்', loading: 'பார்க்கிறோம்…',
+    emptyError: 'உங்கள் குடும்பம் மற்றும் தேவையான உதவி பற்றி கொஞ்சம் சொல்லுங்கள்.', voiceUnsupported: 'இந்த உலாவியில் குரல் வசதி இல்லை. தட்டச்சு செய்து தொடரலாம்.', voiceError: 'குரலைப் பதிவு செய்ய முடியவில்லை. மீண்டும் முயற்சிக்கவும் அல்லது தட்டச்சு செய்யவும்.', voicePermission: 'உலாவி அமைப்புகளில் இந்தத் தளத்திற்கு மைக் அனுமதி வழங்கி மீண்டும் முயற்சிக்கவும்.', voiceNoSpeech: 'குரல் கேட்கவில்லை. மைக்கைச் சரிபார்த்து மீண்டும் பேசுங்கள்.', voiceNetwork: 'இணைய குரல் சேவை கிடைக்கவில்லை. கீழே உள்ள குரல் பதிவைப் பயன்படுத்தலாம்.', voiceNetworkFallback: 'இணைய குரல் சேவை கிடைக்கவில்லை. குரல் பதிவு சேவையகத்திற்கு அனுப்பப்படும்.', voiceLanguage: 'இந்த மொழியை உங்கள் உலாவி குரல் மூலம் அறியவில்லை. வேறு மொழியைத் தேர்ந்தெடுக்கவும் அல்லது தட்டச்சு செய்யவும்.', stopSpeaking: 'பதிவை நிறுத்து', recordVoice: 'குரலைப் பதிவு செய்', transcribing: 'எழுத்தாக்கப்படுகிறது…', voiceFallbackUnsupported: 'இந்த உலாவியில் குரல் பதிவு இல்லை. வேறு உலாவியைப் பயன்படுத்தவும் அல்லது தட்டச்சு செய்யவும்.', voiceNeedsServerKey: 'குரலை எழுத்தாக்க server/.env கோப்பில் OpenAI API key தேவை. அதுவரை தட்டச்சு செய்யலாம்.', voiceRecordingError: 'குரலைப் பதிவு செய்ய முடியவில்லை. மைக் அனுமதியைச் சரிபார்த்து மீண்டும் முயற்சிக்கவும்.', noAudio: 'குரல் பதிவு கிடைக்கவில்லை. மீண்டும் முயற்சிக்கவும்.',
+    quietTitle: 'எளிய சொற்களில் தெளிவான பதில்கள்.', quietBody: 'எந்த உதவி பொருந்தலாம், என்ன விவரம் தேவை, அடுத்து என்ன செய்யலாம் என்பதைப் பாருங்கள்.', summary: 'உங்கள் விவரம்', resultsTitle: 'நீங்கள் பார்க்கக்கூடிய உதவிகள்.', startOver: 'மீண்டும் தொடங்கு', understood: 'நாங்கள் புரிந்துகொண்டது', moreDetails: 'உங்கள் நிலைமையைப் பற்றி மேலும் சொல்லுங்கள்.',
+    possibleMatch: 'உதவி வாய்ப்புகள்', demo: 'முன்மாதிரி தரவு', potential: 'பொருந்தலாம்', confirm: 'சரிபார்க்க வேண்டியது:', documents: 'கேட்டு அறிய வேண்டிய ஆவணங்கள்:', noMatches: 'இந்தச் சிறிய பட்டியலில் பொருத்தமான உதவி இல்லை. அருகிலுள்ள CSC-யில் மற்ற உதவிகளைப் பற்றி கேட்கலாம்.',
+    disclaimer: 'இவை பார்க்க வேண்டிய வாய்ப்புகள் மட்டுமே; ஒப்புதல் அல்ல. விதிகள் மாறலாம். சம்பந்தப்பட்ட துறை அல்லது சேவையில் உறுதிப்படுத்துங்கள்.', needDetails: 'தேவையான விவரங்கள்', gather: 'சரிபார்க்கும் முன் தெரிந்துகொள்ளுங்கள்…', allSet: 'தொடங்குவதற்கான விவரங்கள் கிடைத்துள்ளன. மீதமுள்ள விதிகளை உள்ளூர் சேவையில் சரிபார்க்கலாம்.',
+    needPerson: 'நேரில் உதவி வேண்டுமா?', csc: 'அரசு சேவைகளைப் பெற Common Services Centre (CSC) உதவும்.', findCsc: 'CSC விவரங்கள்', how: 'இது எப்படி வேலை செய்கிறது', howBody: 'AI உங்கள் விவரத்தைப் புரிந்துகொள்ள உதவும். எளிய விதிகள் உதவி வாய்ப்புகளைத் தேடும். இது அரசு முடிவு அல்ல.',
+    years: 'வயது', children: 'குழந்தைகள்', perYear: 'ஆண்டு வருமானம்', noResult: 'இப்போது சரிபார்க்க முடியவில்லை. மீண்டும் முயற்சிக்கவும்.',
+    botTitle: 'நல உதவி AI-யிடம் கேளுங்கள்', botOnline: 'உங்களுடன் இருக்கிறேன்', chatWelcome: 'வணக்கம்! பேச வந்ததற்கு மகிழ்ச்சி. உங்கள் மனதில் இருப்பதைச் சொல்லுங்கள். விவசாயம், படிப்பு அல்லது மருத்துவ உதவி பற்றி ஒவ்வொரு படியாகவும் பார்க்கலாம்.', chatPlaceholder: 'உங்கள் கேள்வியை எழுதுங்கள்…', chatSend: 'கேள்வியை அனுப்பு', chatSpeak: 'இந்தப் பதிலைக் கேளுங்கள்', chatMic: 'குரலில் கேளுங்கள்', chatListening: 'கேட்கிறேன்…', chatBusy: 'பதில் யோசிக்கிறேன்…', chatError: 'இப்போது பதில் அளிக்க முடியவில்லை. மீண்டும் முயற்சிக்கவும்.', chatVoiceError: 'உங்கள் குரலைக் கேட்க முடியவில்லை. மைக் அனுமதியைச் சரிபார்க்கவும் அல்லது தட்டச்சு செய்யவும்.', chatVoiceFallback: 'இணைய குரல் சேவை கிடைக்கவில்லை. கேள்வியைப் பதிவு செய்ய மைக்கை மீண்டும் அழுத்துங்கள்.', chatRecord: 'கேள்வியைப் பதிவு செய்', chatStopRecord: 'பதிவை நிறுத்து', chatTranscribing: 'எழுத்தாக்கப்படுகிறது…', chatNeedsKey: 'குரலை எழுத்தாக்க server/.env கோப்பில் OpenAI API key தேவை. அதுவரை தட்டச்சு செய்யலாம்.', speechOn: 'குரல் பதிலை நிறுத்து', speechOff: 'குரல் பதிலை இயக்கு', nativeTamilUnavailable: 'இந்தச் சாதனத்தில் தமிழ் குரல் இல்லை. இயல்பான தமிழ் குரல் பதில்களுக்கு server/.env கோப்பில் OpenAI API key அமைக்கவும்.', speechPlaybackBlocked: 'உலாவி தானாக ஒலிக்க அனுமதிக்கவில்லை. பதிலைக் கேட்க ஒலிபெருக்கி பொத்தானை அழுத்துங்கள்.',
+  },
+}
+
+const sampleDescriptions = {
+  en: 'I am 48 years old and live in a village in Tamil Nadu. I am a small farmer with yearly income around Rs 90,000. I have two children; my daughter is studying and my wife has medical expenses.',
+  ta: 'எனக்கு 48 வயது. நான் தமிழ்நாட்டில் ஒரு கிராமத்தில் வசிக்கிறேன். நான் சிறு விவசாயி. என் ஆண்டு வருமானம் சுமார் 90,000 ரூபாய். எனக்கு இரண்டு குழந்தைகள். என் மகள் படிக்கிறாள்; என் மனைவிக்கு மருத்துவச் செலவு உள்ளது.',
+}
+
+>>>>>>> 738798fafffb7353907de59d464c5ead946a67f5
 const tamilSchemeText = {
   'pm-kisan': { name: 'PM-KISAN விவசாயி வருமான உதவி', summary: 'தகுதியுள்ள நிலம் வைத்திருக்கும் விவசாயக் குடும்பங்களுக்கு வருமான உதவி கிடைக்கலாம். விதிவிலக்குகள் மற்றும் விதிகள் பொருந்தும்.', whyMatch: 'நீங்கள் விவசாயம் செய்வதாகச் சொன்னதால், விவசாயி உதவிகளைப் பார்க்கலாம்.', missing: ['விவசாய நிலம் சொந்தமா அல்லது குத்தகையா'], documents: ['ஆதார்', 'நில ஆவணங்கள்', 'வங்கி கணக்கு விவரம்'], next: 'விவசாய அலுவலகம் அல்லது சேவை மையத்தில் தற்போதைய PM-KISAN விதிகளையும் நில ஆவணத் தேவைகளையும் கேளுங்கள்.' },
   pmfby: { name: 'பயிர் காப்பீடு (PMFBY)', summary: 'குறிப்பிட்ட பயிர் மற்றும் பகுதியில், அந்தப் பருவத்தில் பயிர் காப்பீடு கிடைக்கலாம்.', whyMatch: 'நீங்கள் விவசாயம் செய்வதாகச் சொன்னதால், பயிர் காப்பீட்டைப் பார்க்கலாம்.', missing: ['பயிர் மற்றும் தற்போதைய பருவம்', 'உங்கள் மாவட்டம்'], documents: ['பயிர் மற்றும் விதைப்பு விவரம்', 'நிலம் அல்லது குத்தகை ஆவணங்கள்', 'வங்கி கணக்கு விவரம்'], next: 'இந்தப் பருவத்தில் உங்கள் பயிருக்கும் பகுதிக்கும் காப்பீடு உள்ளதா என உள்ளூர் விவசாய அலுவலகம் அல்லது வங்கியில் கேளுங்கள்.' },
@@ -88,7 +127,10 @@ function App() {
   const [listening, setListening] = useState(false)
   const [fallbackReady, setFallbackReady] = useState(false)
   const [fallbackState, setFallbackState] = useState('')
+<<<<<<< HEAD
   const [chatOpen, setChatOpen] = useState(false)
+=======
+>>>>>>> 738798fafffb7353907de59d464c5ead946a67f5
   const recognitionRef = useRef(null)
   const recorderRef = useRef(null)
   const streamRef = useRef(null)
@@ -242,10 +284,16 @@ function App() {
     }
   }
 
+<<<<<<< HEAD
   function chooseNeed(text) {
     setDescription(text)
     setError('')
     void reviewSituation(text)
+=======
+  function loadExample() {
+    setDescription(sampleDescriptions[language])
+    setError('')
+>>>>>>> 738798fafffb7353907de59d464c5ead946a67f5
   }
 
   function clearForm() {
@@ -280,6 +328,7 @@ function App() {
 
       <section className="workbench" id="top">
         <div className="intro-column">
+<<<<<<< HEAD
           <h1>{copy.title}</h1>
           <p className="intro-copy">{copy.intro}</p>
         </div>
@@ -302,6 +351,31 @@ function App() {
                 <span className="need-tile-icon"><HeartPulse size={19} /></span><span className="need-tile-label">{copy.tileHealth}</span>
               </button>
             </div>
+=======
+          <div className="eyebrow"><Sparkles size={14} /> {copy.eyebrow}</div>
+          <h1>{copy.title}</h1>
+          <p className="intro-copy">{copy.intro}</p>
+          <div className="steps" aria-label={copy.how}>
+            <div className="step-item"><span className="step-number">01</span><span>{copy.steps[0]}</span></div>
+            <span className="step-rule" />
+            <div className="step-item"><span className="step-number">02</span><span>{copy.steps[1]}</span></div>
+            <span className="step-rule" />
+            <div className="step-item"><span className="step-number">03</span><span>{copy.steps[2]}</span></div>
+          </div>
+          <div className="ecosystem-note">
+            <div className="ecosystem-icon"><CircleHelp size={18} /></div>
+            <p><strong>{copy.ecosystemTitle}</strong><br />{copy.ecosystem}</p>
+          </div>
+        </div>
+
+        <section className="intake-panel" aria-labelledby="intake-title">
+          <div className="panel-heading">
+            <div>
+              <span className="section-kicker">{copy.household}</span>
+              <h2 id="intake-title">{copy.question}</h2>
+            </div>
+            <span className="privacy-note"><span className="privacy-dot" /> {copy.noAccount}</span>
+>>>>>>> 738798fafffb7353907de59d464c5ead946a67f5
           </div>
           <label className="sr-only" htmlFor="situation">{copy.describe}</label>
           <div className="input-wrap">
@@ -312,6 +386,7 @@ function App() {
               onChange={(event) => setDescription(event.target.value)}
               placeholder={copy.placeholder}
               maxLength={3000}
+<<<<<<< HEAD
               rows={2}
             />
             <div className="input-meta">
@@ -327,12 +402,32 @@ function App() {
           <div className="submit-row">
             <span className="gentle-note" aria-hidden="true">{copy.gentle}</span>
             <button className="submit-button" type="button" onClick={() => reviewSituation()} disabled={loading || !description.trim()}>
+=======
+              rows={7}
+            />
+            <div className="input-meta">
+              <span>{copy.hint}</span>
+              <span>{description.length}/3000</span>
+            </div>
+          </div>
+          <div className="input-actions">
+            <button className={`voice-button${listening ? ' is-listening' : ''}`} type="button" onClick={startVoiceInput} aria-label={fallbackState === 'transcribing' ? copy.transcribing : listening ? copy.stopSpeaking : fallbackReady ? copy.recordVoice : copy.speak} aria-pressed={listening} disabled={fallbackState === 'transcribing'}>
+              <Mic size={17} /> <span>{fallbackState === 'transcribing' ? copy.transcribing : fallbackState === 'recording' || listening ? copy.stopSpeaking : fallbackReady ? copy.recordVoice : copy.speak}</span>
+            </button>
+            <button className="example-button" type="button" onClick={loadExample}>{copy.example} <ArrowDownRight size={15} /></button>
+          </div>
+          {error && <p className="form-error" role="alert">{error}</p>}
+          <div className="submit-row">
+            <span className="gentle-note"><Volume2 size={15} /> {copy.gentle}</span>
+            <button className="submit-button" type="button" onClick={() => reviewSituation()} disabled={loading}>
+>>>>>>> 738798fafffb7353907de59d464c5ead946a67f5
               {loading ? <><LoaderCircle className="spinner" size={17} /> {copy.loading}</> : <>{copy.submit} <ArrowRight size={17} /></>}
             </button>
           </div>
         </section>
       </section>
 
+<<<<<<< HEAD
       <section className="chat-entry">
         <button type="button" className="chat-entry-button" onClick={() => setChatOpen((open) => !open)} aria-expanded={chatOpen}>
           <span className="chat-entry-icon"><MessageCircle size={20} /></span>
@@ -347,6 +442,23 @@ function App() {
       <footer className="footer">
         <span>Welfare AI</span>
         <span>{copy.trustNote}</span>
+=======
+      <WelfareChat language={language} />
+
+      {result ? (
+        <Results result={result} onReset={clearForm} language={language} />
+      ) : (
+        <section className="quiet-band">
+          <div className="quiet-icon"><FileText size={19} /></div>
+          <div><strong>{copy.quietTitle}</strong><span>{copy.quietBody}</span></div>
+          <span className="band-illustration" aria-hidden="true"><span /><span /><span /><span /><span /></span>
+        </section>
+      )}
+
+      <footer className="footer">
+        <span>Welfare AI <span className="footer-separator">/</span> Hackathon prototype</span>
+        <span>{language === 'ta' ? 'முன்மாதிரி தரவு · அரசு தகுதி முடிவு அல்ல' : 'Demo scheme data · Not an official eligibility decision'}</span>
+>>>>>>> 738798fafffb7353907de59d464c5ead946a67f5
       </footer>
     </main>
   )
@@ -612,7 +724,11 @@ function Results({ result, onReset, language }) {
             <div className="profile-icon"><UsersRound size={18} /></div>
             <div><strong>{copy.understood}</strong><div className="fact-list">{profileFacts.length ? profileFacts.map((fact) => <span key={fact}>{fact}</span>) : <span>{copy.moreDetails}</span>}</div></div>
           </div>
+<<<<<<< HEAD
           <div className="match-heading"><span>{matches.length} {matches.length === 1 ? copy.possibleMatchOne : copy.possibleMatch}</span><span>{copy.demo}</span></div>
+=======
+          <div className="match-heading"><span>{matches.length} {copy.possibleMatch}</span><span>{copy.demo}</span></div>
+>>>>>>> 738798fafffb7353907de59d464c5ead946a67f5
           {matches.length ? matches.map((scheme) => {
             const Icon = needIcons[scheme.category] || FileText
             const localized = language === 'ta' ? tamilSchemeText[scheme.id] : null
@@ -627,6 +743,7 @@ function Results({ result, onReset, language }) {
                 <div className={`scheme-icon scheme-icon-${scheme.category}`}><Icon size={20} /></div>
                 <div className="scheme-content">
                   <div className="scheme-name-line"><h3>{schemeName}</h3><span className="match-badge">{copy.potential}</span></div>
+<<<<<<< HEAD
                   <div className="reason-line"><Check size={14} /><span>{whyMatch}</span></div>
                   <div className="scheme-next"><ArrowRight size={14} /><span>{nextAction}</span></div>
                   <details className="scheme-details">
@@ -635,6 +752,13 @@ function Results({ result, onReset, language }) {
                     {missing.length > 0 && <p className="scheme-missing"><strong>{copy.confirm}</strong> {missing.join('; ')}</p>}
                     <p className="scheme-documents"><strong>{copy.documents}</strong> {documents.join(', ')}</p>
                   </details>
+=======
+                  <p>{schemeSummary}</p>
+                  <div className="reason-line"><Check size={14} /><span>{whyMatch}</span></div>
+                  {missing.length > 0 && <p className="scheme-missing"><strong>{copy.confirm}</strong> {missing.join('; ')}</p>}
+                  <p className="scheme-documents"><strong>{copy.documents}</strong> {documents.join(', ')}</p>
+                  <div className="scheme-next"><ArrowRight size={14} /><span>{nextAction}</span></div>
+>>>>>>> 738798fafffb7353907de59d464c5ead946a67f5
                 </div>
               </article>
             )

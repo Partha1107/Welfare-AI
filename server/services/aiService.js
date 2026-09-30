@@ -1,5 +1,6 @@
 import OpenAI, { toFile } from 'openai'
 
+<<<<<<< HEAD
 function createTextClient() {
   const isOpenRouter = process.env.OPENAI_BASE_URL?.includes('openrouter.ai')
     || process.env.OPENAI_API_KEY?.startsWith('sk-or-v1')
@@ -33,6 +34,10 @@ export async function transcribeAudio(audio, mimeType, language) {
     throw error
   }
   if (!process.env.OPENAI_AUDIO_API_KEY && !process.env.OPENAI_API_KEY) {
+=======
+export async function transcribeAudio(audio, mimeType, language) {
+  if (!process.env.OPENAI_API_KEY) {
+>>>>>>> 738798fafffb7353907de59d464c5ead946a67f5
     const error = new Error('Voice transcription is not configured on the server.')
     error.status = 503
     throw error
@@ -40,7 +45,11 @@ export async function transcribeAudio(audio, mimeType, language) {
 
   const extension = mimeType.includes('mp4') ? 'mp4' : mimeType.includes('ogg') ? 'ogg' : mimeType.includes('wav') ? 'wav' : 'webm'
   const file = await toFile(audio, `citizen-voice.${extension}`, { type: mimeType })
+<<<<<<< HEAD
   const client = createAudioClient()
+=======
+  const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
+>>>>>>> 738798fafffb7353907de59d464c5ead946a67f5
   const transcript = await client.audio.transcriptions.create({
     file,
     model: 'whisper-1',
@@ -50,6 +59,7 @@ export async function transcribeAudio(audio, mimeType, language) {
 }
 
 export async function generateSpeech(text, language) {
+<<<<<<< HEAD
   if (language === 'ta') {
     if (!process.env.SARVAM_API_KEY) {
       const error = new Error('Tamil speech is not configured. Add SARVAM_API_KEY to server/.env.')
@@ -89,12 +99,19 @@ export async function generateSpeech(text, language) {
     throw error
   }
   if (!process.env.OPENAI_AUDIO_API_KEY && !process.env.OPENAI_API_KEY) {
+=======
+  if (!process.env.OPENAI_API_KEY) {
+>>>>>>> 738798fafffb7353907de59d464c5ead946a67f5
     const error = new Error('Spoken Tamil is not configured on the server.')
     error.status = 503
     throw error
   }
 
+<<<<<<< HEAD
   const client = createAudioClient()
+=======
+  const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
+>>>>>>> 738798fafffb7353907de59d464c5ead946a67f5
   const speech = await client.audio.speech.create({
     model: 'gpt-4o-mini-tts',
     voice: 'marin',
@@ -104,7 +121,11 @@ export async function generateSpeech(text, language) {
       ? 'Speak in clear, natural Tamil as a friendly native Tamil Nadu speaker. Use everyday spoken Tamil pronunciation, not a foreign-accented reading. Speak at a calm, moderate pace, articulate each word clearly, and sound warm and reassuring without becoming theatrical. Keep English scheme names recognizable.'
       : 'Speak in clear, warm conversational Indian English at a calm, moderate pace. Articulate clearly and sound like a friendly, patient helper.',
   })
+<<<<<<< HEAD
   return { audio: Buffer.from(await speech.arrayBuffer()), contentType: 'audio/mpeg' }
+=======
+  return Buffer.from(await speech.arrayBuffer())
+>>>>>>> 738798fafffb7353907de59d464c5ead946a67f5
 }
 
 const offlineAnswers = {
@@ -134,6 +155,7 @@ export async function answerWelfareQuestion(message, language, history = []) {
         : 'Of course, I’m here to help. You can ask about farming, education, medical costs or documents. Tell me a little about your situation and we’ll work out what to check next. A CSC or government office can confirm eligibility.')
   }
 
+<<<<<<< HEAD
   const client = createTextClient()
   const languageInstruction = language === 'ta'
     ? 'Reply only in Tamil using Tamil script (தமிழ் எழுத்துகள்). Do not answer in English or Tanglish. Keep official scheme names and acronyms such as PM-KISAN in their original form, but explain them in simple spoken Tamil.'
@@ -173,6 +195,23 @@ export async function answerWelfareQuestion(message, language, history = []) {
       ?? 'நிச்சயமாக, உதவுகிறேன். உங்கள் கேள்வியை எளிய தமிழில் மீண்டும் சொல்ல முடியுமா?'
   }
   return reply || (language === 'ta' ? 'மன்னிக்கவும், இப்போது பதில் அளிக்க முடியவில்லை.' : 'Sorry, I could not prepare an answer just now.')
+=======
+  const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
+  const messages = [
+    {
+      role: 'system',
+      content: `You are Welfare AI, a friendly public-benefits information helper. Reply in ${language === 'ta' ? 'natural, simple spoken Tamil' : 'plain conversational English'}. Sound like a patient, kind neighbour: warm, reassuring without making promises, never bureaucratic. Use short sentences that sound natural when read aloud. Ask one gentle follow-up question when facts are missing. Give general guidance, never claim eligibility or application approval. Do not invent schemes, amounts, deadlines, or legal/medical advice. Explain that citizens should confirm current rules with myScheme, the relevant department, or a CSC. Welfare AI complements UMANG, myScheme, and CSC; it does not replace them.`,
+    },
+    ...history.slice(-8).filter(({ role, content }) => ['user', 'assistant'].includes(role) && typeof content === 'string').map(({ role, content }) => ({ role, content })),
+    { role: 'user', content: message },
+  ]
+  const completion = await client.chat.completions.create({
+    model: process.env.OPENAI_MODEL || 'gpt-4o-mini',
+    temperature: 0.3,
+    messages,
+  })
+  return completion.choices[0]?.message?.content?.trim() || (language === 'ta' ? 'மன்னிக்கவும், இப்போது பதில் அளிக்க முடியவில்லை.' : 'Sorry, I could not prepare an answer just now.')
+>>>>>>> 738798fafffb7353907de59d464c5ead946a67f5
 }
 
 const numberFromText = (text, expression) => {
@@ -222,9 +261,15 @@ function inferProfile(description) {
 export async function extractCitizenProfile(description) {
   if (!process.env.OPENAI_API_KEY) return inferProfile(description)
 
+<<<<<<< HEAD
   const client = createTextClient()
   const completion = await client.chat.completions.create({
     model: getTextModel(),
+=======
+  const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
+  const completion = await client.chat.completions.create({
+    model: process.env.OPENAI_MODEL || 'gpt-4o-mini',
+>>>>>>> 738798fafffb7353907de59d464c5ead946a67f5
     response_format: { type: 'json_object' },
     temperature: 0,
     messages: [
