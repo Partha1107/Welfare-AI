@@ -1,0 +1,42 @@
+[
+  {
+    "id": "pm-kisan",
+    "name": "PM-KISAN (demo reference)",
+    "category": "farming",
+    "summary": "Income support for eligible landholding farmer families, subject to scheme rules and exclusions.",
+    "needs": ["farming"],
+    "requiredFacts": ["farmlandOwnership"],
+    "documents": ["Aadhaar", "landholding records", "bank account details"],
+    "nextAction": "Check current PM-KISAN status and land record requirements with the agriculture office or an assisted service centre."
+  },
+  {
+    "id": "pmfby",
+    "name": "Pradhan Mantri Fasal Bima Yojana (PMFBY)",
+    "category": "farming",
+    "summary": "Crop insurance support for notified crops and areas during an applicable season.",
+    "needs": ["farming"],
+    "requiredFacts": ["cropDetails", "district"],
+    "documents": ["crop and sowing details", "land or tenancy documents", "bank account details"],
+    "nextAction": "Ask the local agriculture office or bank whether your crop and area are notified for the current season."
+  },
+  {
+    "id": "education-scholarships",
+    "name": "School and post-school scholarships",
+    "category": "education",
+    "summary": "A range of central and state scholarship routes may support eligible students; conditions vary by programme.",
+    "needs": ["education"],
+    "requiredFacts": ["studentEducationLevel", "studentCategory"],
+    "documents": ["student and school details", "income certificate", "bank details", "category certificate if applicable"],
+    "nextAction": "Ask the school about active scholarship applications and deadlines, then verify the student-specific criteria."
+  },
+  {
+    "id": "healthcare-support",
+    "name": "Public health coverage and state health support",
+    "category": "healthcare",
+    "summary": "Public health coverage options may be available depending on household listing, state rules and the treatment needed.",
+    "needs": ["healthcare"],
+    "requiredFacts": ["householdHealthEligibility", "treatmentDetails"],
+    "documents": ["household or ration-card details", "identity documents", "hospital or treatment details"],
+    "nextAction": "Check household coverage with a participating hospital help desk or the state health helpline before treatment."
+  }
+]
