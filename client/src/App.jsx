@@ -25,9 +25,9 @@ const translations = {
   en: {
     language: 'Language', prototype: 'India', eyebrow: '', title: 'Choose help', intro: 'Tap a picture or speak.',
     steps: ['Your story', 'Possible help', 'Next steps'], ecosystemTitle: 'Works alongside public services.', ecosystem: 'UMANG, myScheme and CSC help people access government services. Welfare AI is a prototype that helps explain possible support. It does not replace those services.',
-    household: 'Start here', question: 'Choose help, or talk', noAccount: '', describe: 'Tell us what help you need', placeholder: 'Or type a few words…',
-    hint: '', speak: 'Tap and talk', listening: 'Listening…', example: 'Example', gentle: '', submit: 'Find help', loading: 'Checking…',
-    tileFarm: 'Farm', tileSchool: 'School', tileHealth: 'Health', chooseNeed: 'Tap a picture', chatOpen: 'Talk to helper', chatClose: 'Close helper',
+    household: 'Start here', question: 'Choose help, or talk', noAccount: 'No account needed', describe: 'Tell us what help you need', placeholder: 'Or type a few words…',
+    hint: 'Add your village, work, income, or family needs if you can.', speak: 'Tap and talk', listening: 'Listening…', example: 'Example', gentle: 'Say it in your own words.', submit: 'Find help', loading: 'Checking…',
+    guideTitle: 'Quick steps', guideTips: ['Pick the help you need', 'Tell us what is happening', 'Check possible support'], bestOutcomeTitle: 'For the best result, share', bestOutcomeTips: ['Your location(City or village)', 'Work or income', 'Family needs or documents'], tileFarm: 'Farm', tileSchool: 'School', tileHealth: 'Health', chooseNeed: 'Tap a picture', chatOpen: 'Talk to helper', chatClose: 'Close helper',
     trustNote: 'Demo guide. Check with an official service.',
     emptyError: 'Tell us a little about your family and what help you need.', voiceUnsupported: 'Voice input is not available in this browser. You can type instead.', voiceError: 'Could not start voice input. Check microphone permission or type instead.', voicePermission: 'Allow microphone access for this site in your browser settings, then try again.', voiceNoSpeech: 'No speech was heard. Check your microphone and try speaking again.', voiceNetwork: 'Speech recognition could not connect. Check your internet connection or use voice recording below.', voiceNetworkFallback: 'Online speech recognition is unavailable. You can record a short voice message; audio is sent to the server for transcription.', voiceLanguage: 'Speech recognition does not support this language in your browser. Choose another language or type instead.', stopSpeaking: 'Stop listening', recordVoice: 'Record voice', transcribing: 'Transcribing…', voiceFallbackUnsupported: 'Voice recording is not supported by this browser. Try another browser or type instead.', voiceNeedsServerKey: 'Voice transcription needs an OpenAI API key in server/.env. You can type your situation meanwhile.', voiceRecordingError: 'Could not record audio. Check microphone permission and try again.', noAudio: 'No audio was recorded. Please try again.',
     quietTitle: 'Clear answers, in simple words.', quietBody: 'See why support may fit, what details are missing, and what to do next.', summary: 'YOUR SUMMARY', resultsTitle: 'Here is what you can check.', startOver: 'Start again', understood: 'What we understood', moreDetails: 'Add a little more detail to your story.',
@@ -40,9 +40,9 @@ const translations = {
   ta: {
     language: 'மொழி', prototype: 'இந்தியா', eyebrow: '', title: 'உதவியைத் தேர்ந்தெடுங்கள்', intro: 'படத்தைத் தொடுங்கள் அல்லது பேசுங்கள்.',
     steps: ['உங்கள் விவரம்', 'உதவி வாய்ப்புகள்', 'அடுத்த படி'], ecosystemTitle: 'அரசு சேவைகளுடன் இணைந்து செயல்படும்.', ecosystem: 'UMANG, myScheme, CSC ஆகியவை அரசு சேவைகளைப் பெற உதவுகின்றன. Welfare AI உதவி வாய்ப்புகளை விளக்கும் முன்மாதிரி. இது அந்த சேவைகளுக்கு மாற்றாகாது.',
-    household: 'இங்கே தொடங்குங்கள்', question: 'உதவியைத் தேர்ந்தெடுக்கவும் அல்லது பேசுங்கள்', noAccount: '', describe: 'என்ன உதவி தேவை என்று சொல்லுங்கள்', placeholder: 'அல்லது சில சொற்களை எழுதுங்கள்…',
-    hint: '', speak: 'தொட்டு பேசுங்கள்', listening: 'கேட்கிறோம்…', example: 'உதாரணம்', gentle: '', submit: 'உதவியைத் தேடு', loading: 'பார்க்கிறோம்…',
-    tileFarm: 'விவசாயம்', tileSchool: 'படிப்பு', tileHealth: 'மருத்துவம்', chooseNeed: 'ஒரு படத்தைத் தொடுங்கள்', chatOpen: 'உதவியாளரிடம் பேசுங்கள்', chatClose: 'மூடு',
+    household: 'இங்கே தொடங்குங்கள்', question: 'உதவியைத் தேர்ந்தெடுக்கவும் அல்லது பேசுங்கள்', noAccount: 'கணக்கு தேவையில்லை', describe: 'என்ன உதவி தேவை என்று சொல்லுங்கள்', placeholder: 'அல்லது சில சொற்களை எழுதுங்கள்…',
+    hint: 'கிராமம், வேலை, வருமானம் அல்லது குடும்பத் தேவைகளைச் சேர்க்கலாம்.', speak: 'தொட்டு பேசுங்கள்', listening: 'கேட்கிறோம்…', example: 'உதாரணம்', gentle: 'உங்கள் சொந்த வார்த்தைகளில் சொல்லுங்கள்.', submit: 'உதவியைத் தேடு', loading: 'பார்க்கிறோம்…',
+    guideTitle: 'சுருக்க வழிமுறைகள்', guideTips: ['தேவையைத் தேர்ந்தெடுக்கவும்', 'என்ன நடக்கிறது என்று சொல்லுங்கள்', 'சாத்தியமான உதவியைப் பாருங்கள்'], bestOutcomeTitle: 'சிறந்த முடிவுக்கு, இதைச் சொல்லுங்கள்', bestOutcomeTips: ['உங்கள் இருப்பிடம்', 'வேலை அல்லது வருமானம்', 'குடும்பத் தேவைகள் அல்லது ஆவணங்கள்'], tileFarm: 'விவசாயம்', tileSchool: 'படிப்பு', tileHealth: 'மருத்துவம்', chooseNeed: 'ஒரு படத்தைத் தொடுங்கள்', chatOpen: 'உதவியாளரிடம் பேசுங்கள்', chatClose: 'மூடு',
     trustNote: 'முன்மாதிரி வழிகாட்டி. அரசு சேவையில் உறுதிப்படுத்துங்கள்.',
     emptyError: 'உங்கள் குடும்பம் மற்றும் தேவையான உதவி பற்றி கொஞ்சம் சொல்லுங்கள்.', voiceUnsupported: 'இந்த உலாவியில் குரல் வசதி இல்லை. தட்டச்சு செய்து தொடரலாம்.', voiceError: 'குரலைப் பதிவு செய்ய முடியவில்லை. மீண்டும் முயற்சிக்கவும் அல்லது தட்டச்சு செய்யவும்.', voicePermission: 'உலாவி அமைப்புகளில் இந்தத் தளத்திற்கு மைக் அனுமதி வழங்கி மீண்டும் முயற்சிக்கவும்.', voiceNoSpeech: 'குரல் கேட்கவில்லை. மைக்கைச் சரிபார்த்து மீண்டும் பேசுங்கள்.', voiceNetwork: 'இணைய குரல் சேவை கிடைக்கவில்லை. கீழே உள்ள குரல் பதிவைப் பயன்படுத்தலாம்.', voiceNetworkFallback: 'இணைய குரல் சேவை கிடைக்கவில்லை. குரல் பதிவு சேவையகத்திற்கு அனுப்பப்படும்.', voiceLanguage: 'இந்த மொழியை உங்கள் உலாவி குரல் மூலம் அறியவில்லை. வேறு மொழியைத் தேர்ந்தெடுக்கவும் அல்லது தட்டச்சு செய்யவும்.', stopSpeaking: 'பதிவை நிறுத்து', recordVoice: 'குரலைப் பதிவு செய்', transcribing: 'எழுத்தாக்கப்படுகிறது…', voiceFallbackUnsupported: 'இந்த உலாவியில் குரல் பதிவு இல்லை. வேறு உலாவியைப் பயன்படுத்தவும் அல்லது தட்டச்சு செய்யவும்.', voiceNeedsServerKey: 'குரலை எழுத்தாக்க server/.env கோப்பில் OpenAI API key தேவை. அதுவரை தட்டச்சு செய்யலாம்.', voiceRecordingError: 'குரலைப் பதிவு செய்ய முடியவில்லை. மைக் அனுமதியைச் சரிபார்த்து மீண்டும் முயற்சிக்கவும்.', noAudio: 'குரல் பதிவு கிடைக்கவில்லை. மீண்டும் முயற்சிக்கவும்.',
     quietTitle: 'எளிய சொற்களில் தெளிவான பதில்கள்.', quietBody: 'எந்த உதவி பொருந்தலாம், என்ன விவரம் தேவை, அடுத்து என்ன செய்யலாம் என்பதைப் பாருங்கள்.', summary: 'உங்கள் விவரம்', resultsTitle: 'நீங்கள் பார்க்கக்கூடிய உதவிகள்.', startOver: 'மீண்டும் தொடங்கு', understood: 'நாங்கள் புரிந்துகொண்டது', moreDetails: 'உங்கள் நிலைமையைப் பற்றி மேலும் சொல்லுங்கள்.',
@@ -282,6 +282,22 @@ function App() {
         <div className="intro-column">
           <h1>{copy.title}</h1>
           <p className="intro-copy">{copy.intro}</p>
+          <div className="user-guidance" aria-label={copy.guideTitle}>
+            <p className="guide-title">{copy.guideTitle}</p>
+            <ul className="guide-list">
+              {copy.guideTips.map((tip) => (
+                <li key={tip}>{tip}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="user-guidance data-guidance" aria-label={copy.bestOutcomeTitle}>
+            <p className="guide-title">{copy.bestOutcomeTitle}</p>
+            <ul className="guide-list">
+              {copy.bestOutcomeTips.map((tip) => (
+                <li key={tip}>{tip}</li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         <section className="intake-panel" aria-labelledby="intake-title">
