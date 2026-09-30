@@ -143,6 +143,9 @@ h1 span { color: var(--green); }
 .scheme-documents strong { color: #5e665d; }
 .scheme-next { display: flex; align-items: flex-start; gap: 7px; margin-top: 9px; color: #405e4a; font-size: 10px; line-height: 1.55; }
 .scheme-next svg { flex: 0 0 auto; margin-top: 1px; }
+.scheme-details { margin-top: 9px; color: #697168; font-size: 10px; }
+.scheme-details summary { width: fit-content; color: #42654b; cursor: pointer; font-weight: 600; }
+.scheme-details > p { margin: 7px 0 0; line-height: 1.6; }
 .dataset-disclaimer { margin: 15px 0 0; color: #92968e; font-size: 9px; line-height: 1.6; }
 .empty-matches { margin-top: 12px; padding: 19px; color: #737970; background: #efefe7; font-size: 11px; line-height: 1.65; }
 .next-card { padding: 21px 20px; border: 1px solid #dfdfd5; background: #fffefa; }
@@ -220,4 +223,50 @@ h1 span { color: var(--green); }
   .input-meta span:first-child { max-width: 205px; }
   .scheme-name-line { flex-direction: column; gap: 5px; }
   html[lang="ta"] h1 { font-size: 34px; }
+}
+
+.workbench { grid-template-columns: minmax(0, 1fr); gap: 22px; max-width: 860px; margin: 0 auto; padding: 48px 0 36px; align-items: start; }
+.intro-column { max-width: 720px; }
+h1 { margin: 12px 0 7px; font-size: 44px; line-height: 1.12; font-weight: 700; }
+.intro-copy { max-width: 520px; font-size: 16px; line-height: 1.5; }
+.intake-panel { padding: 22px 24px; }
+.panel-heading { margin-bottom: 15px; }
+.panel-heading h2 { margin-top: 5px; font-size: 19px; }
+.need-picker { margin: 6px 0 5px; }
+.need-picker-label { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; color: #5e685e; font-size: 13px; font-weight: 600; }
+.need-tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.need-tile { position: relative; min-width: 0; height: 132px; overflow: hidden; padding: 0; border: 2px solid transparent; background: #d7ddd2; cursor: pointer; text-align: left; isolation: isolate; }
+.need-tile::after { position: absolute; z-index: -1; inset: 25% 0 0; content: ''; background: linear-gradient(transparent, #17231ee8); }
+.need-tile:hover, .need-tile:focus-visible { border-color: #52765c; outline: 2px solid #fff; outline-offset: 2px; }
+.need-tile img { position: absolute; z-index: -2; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .25s ease; }
+.need-tile:hover img { transform: scale(1.04); }
+.need-tile-icon { position: absolute; top: 10px; left: 10px; display: grid; place-items: center; width: 34px; height: 34px; color: #263e31; background: #fffefaed; }
+.need-tile-label { position: absolute; right: 12px; bottom: 10px; left: 12px; color: #fff; font-size: 18px; font-weight: 700; text-shadow: 0 1px 8px #1118; }
+.input-wrap textarea { min-height: 54px; font-size: 15px; line-height: 1.6; }
+.input-actions { justify-content: center; margin: 18px 0 12px; }
+.big-voice-button { display: flex; width: min(100%, 360px); min-height: 62px; justify-content: center; gap: 12px; border: 0; color: white; background: var(--green); font-size: 17px; }
+.big-voice-button:hover:not(:disabled) { background: var(--deep-green); }
+.big-voice-button.is-listening { color: white; background: #a34f3c; }
+.submit-row { justify-content: flex-end; margin-top: 15px; padding-top: 13px; }
+.submit-button { min-height: 48px; min-width: 180px; padding: 0 18px; font-size: 15px; font-weight: 700; }
+.chat-entry { max-width: 860px; margin: 0 auto 25px; }
+.chat-entry-button { display: flex; width: 100%; min-height: 56px; align-items: center; gap: 13px; padding: 8px 15px; border: 1px solid #dedfd6; color: #344b3b; background: #fffefa; cursor: pointer; font-size: 15px; font-weight: 600; text-align: left; }
+.chat-entry-button > span:nth-child(2) { flex: 1; }
+.chat-entry-button:hover { border-color: #98aa95; background: #f7f8f3; }
+.chat-entry-icon { display: grid; place-items: center; width: 36px; height: 36px; color: white; background: var(--green); }
+.chat-entry .chat-panel { margin-top: 12px; }
+.footer { font-size: 11px; }
+
+@media (max-width: 680px) {
+  .workbench { gap: 18px; padding: 28px 0 23px; }
+  .intro-copy { font-size: 15px; }
+  .intake-panel { padding: 18px 15px; }
+  .need-tiles { gap: 8px; }
+  .need-tile { height: 105px; }
+  .need-tile-label { right: 7px; left: 7px; font-size: 14px; }
+  .need-tile-icon { top: 7px; left: 7px; width: 30px; height: 30px; }
+  .big-voice-button { width: 100%; min-height: 58px; }
+  .gentle-note { justify-content: center; width: 100%; font-size: 12px; }
+  .submit-row { align-items: stretch; flex-direction: column; }
+  .submit-button { width: 100%; }
 }

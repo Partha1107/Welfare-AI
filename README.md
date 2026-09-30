@@ -1,7 +1,7 @@
 # Welfare-AI
 
-## Natural Tamil voice replies
+## Tamil AI and voice setup
 
-Welfare AI prefers generated Tamil speech for clear, natural Tamil Nadu pronunciation. To enable it, copy `server/.env.example` to `server/.env`, add your `OPENAI_API_KEY`, then restart the server. The key stays on the server and is not sent to the browser.
+Text chat supports OpenRouter and requests replies in Tamil script. Put your OpenRouter key in `OPENAI_API_KEY`. The example config routes text requests through OpenRouter and uses `openai/gpt-4o-mini`.
 
-If no key is configured, the site uses an installed Tamil browser voice when available. It will not read Tamil replies with an unrelated English voice.
+For native Tamil speech, set a Sarvam AI key in `SARVAM_API_KEY`. Tamil audio uses Sarvam Bulbul with the `ta-IN` voice. `OPENAI_AUDIO_API_KEY` is optional and is used for English speech and voice transcription; an OpenRouter text key cannot be used for these audio endpoints. Keep real keys in `server/.env`, never in `.env.example` or client code. Revoke any key that has been pasted into a shared file or chat.

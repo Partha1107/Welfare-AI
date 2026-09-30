@@ -36,8 +36,8 @@ app.post('/api/speak', async (request, response) => {
   }
 
   try {
-    const audio = await generateSpeech(text.trim(), language === 'ta' ? 'ta' : 'en')
-    return response.type('audio/mpeg').send(audio)
+    const { audio, contentType } = await generateSpeech(text.trim(), language === 'ta' ? 'ta' : 'en')
+    return response.type(contentType).send(audio)
   } catch (error) {
     console.error('Speech generation failed:', error.message)
     return response.status(error.status || 502).json({ error: error.message })
